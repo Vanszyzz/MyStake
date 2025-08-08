@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offre Limitée - Ne Manquez Pas Cette Opportunité</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; }
+        
+        .timer-digit {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.05)} }
+        
+        .carousel-container { scroll-snap-type:x mandatory; scrollbar-width:none; -ms-overflow-style:none; }
+        .carousel-container::-webkit-scrollbar { display:none; }
+        .carousel-item { scroll-snap-align:center; flex-shrink:0; }
+        .gradient-bg { background: linear-gradient(135deg, #fce7f3 0%, #f9a8d4 100%); }
+        
+        .btn-primary { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); transition: all .3s ease; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(102,126,234,.3); }
+        .btn-secondary { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); transition: all .3s ease; }
+        .btn-secondary:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(252,182,159,.3); }
+
+        /* ===== Styles FAQ "jeuxtiktok"-like ===== */
+        .jt-card{background:rgba(250,229,255,.55);border-radius:18px;box-shadow:0 10px 24px rgba(118,75,162,.12)}
+        .jt-panel{background:rgba(255,241,255,.9);border-radius:16px;max-height:0;overflow:hidden;transition:max-height .3s ease}
+        .jt-icon{width:38px;height:38px;border-radius:9999px;display:grid;place-items:center;
+                 background:linear-gradient(135deg,#a78bfa 0%,#ec4899 100%);color:#fff;font-size:18px;flex:none}
+        .jt-arrow{transition:transform .25s ease}
+        .jt-item[data-open="true"] .jt-arrow{transform:rotate(180deg)}
+        .jt-item[data-open="true"] .jt-panel{max-height:700px}
+    </style>
+</head>
+<body class="min-h-screen" style="background: linear-gradient(135deg, #fce7f3 0%, #f9a8d4 100%);">
+    <!-- Header avec minuteur -->
+    <div class="gradient-bg py-8 px-4 text-center">
+        <h1 class="text-3xl font-bold mb-2" style="color: #6366f1;">BONUS DE 150%</h1>
+        <p class="text-xl mb-4" style="color: #6366f1;">Cette opportunité se termine dans :</p>
+        
+        <!-- Minuteur -->
+        <div class="flex justify-center space-x-2 mb-4">
+            <div class="timer-digit text-white rounded-lg p-3 text-center min-w-[60px]">
+                <div class="text-2xl font-bold" id="hours">00</div>
+                <div class="text-xs">HEURES</div>
+            </div>
+            <div class="timer-digit text-white rounded-lg p-3 text-center min-w-[60px]">
+                <div class="text-2xl font-bold" id="minutes">00</div>
+                <div class="text-xs">MINUTES</div>
+            </div>
+            <div class="timer-digit text-white rounded-lg p-3 text-center min-w-[60px]">
+                <div class="text-2xl font-bold" id="seconds">00</div>
+                <div class="text-xs">SECONDES</div>
+            </div>
+        </div>
+        
+        <p class="text-base" style="color: #6366f1;">Dépose 30€ et obtiens 45€ en bonus ! Donc tu joues avec 75€. (PS: tu obtiens 250€ gratuitement si tu déposes 200€)</p>
+    </div>
+
+    <!-- Bouton d'affiliation principal -->
+    <div class="px-4 py-6">
+        <a href="https://taap.it/Jeu_tiktok" target="_blank" 
+           class="btn-primary block w-full text-white rounded-xl font-semibold text-lg shadow-lg flex items-end justify-start p-6 relative overflow-hidden" 
+           style="aspect-ratio: 1200/400; background-image: url('https://images.ctfassets.net/396hpkwz9eqc/188mubcSy8XI8pmzdtZtz4/db77553115ad71cadb5d60a93a1dc0fe/mystake-casino-banner.webp'); background-size: cover; background-position: center;">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            <span class="relative z-10">🚀 INSCRIPTION EN 30 SECONDES</span>
+        </a>
+        <p class="text-center text-gray-600 text-sm mt-2">✅ Accès immédiat • 💯 Garantie satisfait</p>
+    </div>
+
+    <!-- Carrousel -->
+    <div class="px-4 py-6">
+        <h2 class="text-xl font-semibold text-gray-800 mb-4 text-center">Gains Récents 💸</h2>
+        <div class="carousel-container flex overflow-x-auto space-x-4 pb-4">
+            <div class="carousel-item bg-gradient-to-br from-pink-400 to-purple-500 rounded-2xl p-6 text-white text-center min-w-[200px] h-[300px] flex flex-col justify-center">
+                <div class="text-4xl mb-4">📈</div>
+                <h3 class="font-semibold mb-2">Résultat #1</h3>
+                <p class="text-sm opacity-90">+150% de revenus en 30 jours</p>
+            </div>
+            <div class="carousel-item bg-gradient-to-br from-blue-400 to-cyan-500 rounded-2xl p-6 text-white text-center min-w-[200px] h-[300px] flex flex-col justify-center">
+                <div class="text-4xl mb-4">💰</div>
+                <h3 class="font-semibold mb-2">Résultat #2</h3>
+                <p class="text-sm opacity-90">Premier gain dès la première semaine</p>
+            </div>
+            <div class="carousel-item bg-gradient-to-br from-green-400 to-emerald-500 rounded-2xl p-6 text-white text-center min-w-[200px] h-[300px] flex flex-col justify-center">
+                <div class="text-4xl mb-4">🎯</div>
+                <h3 class="font-semibold mb-2">Résultat #3</h3>
+                <p class="text-sm opacity-90">Objectifs atteints en 2 mois</p>
+            </div>
+            <div class="carousel-item bg-gradient-to-br from-orange-400 to-red-500 rounded-2xl p-6 text-white text-center min-w-[200px] h-[300px] flex flex-col justify-center">
+                <div class="text-4xl mb-4">⭐</div>
+                <h3 class="font-semibold mb-2">Résultat #4</h3>
+                <p class="text-sm opacity-90">5 étoiles de satisfaction</p>
+            </div>
+        </div>
+        <p class="text-center text-gray-500 text-sm mt-2">👈 Faites défiler pour voir plus</p>
+    </div>
+
+    <!-- ===== FAQ (style jeuxtiktok) ===== -->
+    <section id="faq" class="mx-4 my-8">
+      <h2 class="text-2xl font-semibold text-center text-[#1f2937] mb-4">Questions fréquentes</h2>
+      <div class="space-y-4">
+
+        <!-- 1. Bonus -->
+        <article class="jt-item jt-card p-4" data-open="false">
+          <button type="button" class="jt-toggle w-full flex items-center gap-3" aria-expanded="false">
+            <span class="jt-icon">➕</span>
+            <span class="flex-1 text-[#1f2937] font-medium">Y'a un bonus si je dépose ?</span>
+            <span class="jt-arrow">▾</span>
+          </button>
+          <div class="jt-panel mt-3 p-4 text-[#374151]">
+            <p class="mb-3">💬 <strong>Oui, et c'est automatique.</strong></p>
+            <ul class="space-y-1">
+              <li>&gt; Dès que tu déposes <strong>au moins 10€</strong>, ton dépôt est <strong>doublé instantanément</strong> — pas besoin de code promo.</li>
+              <li>&gt; 🔥 Tu déposes <strong>20€</strong> → tu joues avec <strong>40€</strong></li>
+              <li>&gt; 💸 Tu déposes <strong>100€</strong> → tu joues direct avec <strong>200€</strong></li>
+            </ul>
+            <p class="mt-3">✅ Le <strong>bonus x2</strong> est garanti à chaque dépôt, peu importe le montant. Et parfois, un petit bonus surprise 🎉</p>
+          </div>
+        </article>
+
+        <!-- 2. Retraits -->
+        <article class="jt-item jt-card p-4" data-open="false">
+          <button type="button" class="jt-toggle w-full flex items-center gap-3" aria-expanded="false">
+            <span class="jt-icon">💳</span>
+            <span class="flex-1 text-[#1f2937] font-medium">Est-ce qu'on peut retirer l'argent ?</span>
+            <span class="jt-arrow">▾</span>
+          </button>
+          <div class="jt-panel mt-3 p-4 text-[#374151]">
+            <p class="mb-3">💬 <strong>Bien sûr !</strong></p>
+            <p>Dès que t’as gagné, tu peux retirer sur ton compte bancaire et tu recevras en <strong>2 jours</strong> comme un virement classique. 🧾</p>
+            <ul class="space-y-1 mt-3">
+              <li>&gt; ✨ <strong>Simple & rapide</strong> :</li>
+              <li>&gt; 🏦 Demande de retrait</li>
+              <li>&gt; ⏱️ <strong>Traitement sous 2h</strong></li>
+              <li>&gt; 💶 Virement sur ton compte</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 3. Où sont les jeux ? -->
+        <article class="jt-item jt-card p-4" data-open="false">
+          <button type="button" class="jt-toggle w-full flex items-center gap-3" aria-expanded="false">
+            <span class="jt-icon">🎮</span>
+            <span class="flex-1 text-[#1f2937] font-medium">Où sont les jeux ?</span>
+            <span class="jt-arrow">▾</span>
+          </button>
+          <div class="jt-panel mt-3 p-4 text-[#374151]">
+            <p class="mb-3">🎮 Une fois <strong>inscrit et connecté</strong>, et que ton <strong>premier dépôt</strong> sera fait :</p>
+            <ul class="space-y-1">
+              <li>&gt; 🧊 Accès aux <strong>mini-jeux exclusifs</strong></li>
+              <li>&gt; 🎯 <strong>Interface intuitive</strong></li>
+              <li>&gt; ✨ <strong>Bonus spéciaux</strong> débloqués</li>
+            </ul>
+            <p class="mt-3">⚡ Tout est <strong>instantané</strong> après ton dépôt !</p>
+          </div>
+        </article>
+
+        <!-- 4. Fiabilité -->
+        <article class="jt-item jt-card p-4" data-open="false">
+          <button type="button" class="jt-toggle w-full flex items-center gap-3" aria-expanded="false">
+            <span class="jt-icon">🔒</span>
+            <span class="flex-1 text-[#1f2937] font-medium">C'est fiable ?</span>
+            <span class="jt-arrow">▾</span>
+          </button>
+          <div class="jt-panel mt-3 p-4 text-[#374151]">
+            <p class="mb-3">🔐 <strong>Absolument sûr et certifié !</strong></p>
+            <ul class="space-y-1">
+              <li>&gt; ✅ Site de jeu <strong>officiellement certifié</strong></li>
+              <li>&gt; 🌍 Actif <strong>dans plusieurs pays</strong></li>
+              <li>&gt; 💳 <strong>Paiements sécurisés</strong></li>
+            </ul>
+            <p class="mt-3">🎯 Notre philosophie :</p>
+            <ul class="space-y-1">
+              <li>&gt; 💸 Tu <strong>déposes</strong></li>
+              <li>&gt; 🎮 Tu <strong>joues</strong></li>
+              <li>&gt; 🟢 Tu <strong>retires</strong></li>
+            </ul>
+            <p class="mt-3">Simple. Sans prise de tête. ✨</p>
+          </div>
+        </article>
+
+        <!-- 5. C'est quoi le jeu ? -->
+        <article class="jt-item jt-card p-4" data-open="false">
+          <button type="button" class="jt-toggle w-full flex items-center gap-3" aria-expanded="false">
+            <span class="jt-icon">❓</span>
+            <span class="flex-1 text-[#1f2937] font-medium">C'est quoi exactement le jeu ?</span>
+            <span class="jt-arrow">▾</span>
+          </button>
+          <div class="jt-panel mt-3 p-4 text-[#374151]">
+            <p class="mb-3">🎮 <strong>Mini-jeu ultra rapide et simple :</strong></p>
+            <ul class="space-y-1">
+              <li>&gt; ⚡ <strong>Quelques clics</strong> suffisent</li>
+              <li>&gt; 💫 Possibilité de <strong>doubler instantanément</strong></li>
+              <li>&gt; 🔥 Le même jeu que tu vois sur <strong>TikTok</strong> et <strong>Insta</strong> !</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 6. Mobile -->
+        <article class="jt-item jt-card p-4" data-open="false">
+          <button type="button" class="jt-toggle w-full flex items-center gap-3" aria-expanded="false">
+            <span class="jt-icon">📱</span>
+            <span class="flex-1 text-[#1f2937] font-medium">Est-ce que ça marche sur téléphone ?</span>
+            <span class="jt-arrow">▾</span>
+          </button>
+          <div class="jt-panel mt-3 p-4 text-[#374151]">
+            <p class="mb-3">📲 <strong>100% compatible mobile !</strong></p>
+            <ul class="space-y-1">
+              <li>&gt; ✨ Optimisé pour ton téléphone</li>
+              <li>&gt; 🚀 <strong>Interface fluide</strong> et intuitive</li>
+              <li>&gt; 💡 <strong>Pas besoin d'ordinateur</strong></li>
+            </ul>
+            <p class="mt-3">Tout se fait depuis ton tel en <strong>quelques clics</strong> ! 🎯</p>
+          </div>
+        </article>
+
+        <!-- 7. Tester sans déposer -->
+        <article class="jt-item jt-card p-4" data-open="false">
+          <button type="button" class="jt-toggle w-full flex items-center gap-3" aria-expanded="false">
+            <span class="jt-icon">🧐</span>
+            <span class="flex-1 text-[#1f2937] font-medium">Est-ce que je peux tester sans déposer ?</span>
+            <span class="jt-arrow">▾</span>
+          </button>
+          <div class="jt-panel mt-3 p-4 text-[#374151]">
+            <p class="mb-3">🔎 <strong>Voici comment ça marche :</strong></p>
+            <ul class="space-y-1">
+              <li>&gt; ✅ <strong>Explorer le site</strong> : Gratuit</li>
+              <li>&gt; 🎮 <strong>Accès aux jeux</strong> : Après dépôt</li>
+              <li>&gt; 💎 <strong>Dépôt minimum</strong> : 20€</li>
+            </ul>
+            <p class="mt-3">⭐ <strong>Notre conseil</strong> : Commence avec le minimum pour tester !</p>
+          </div>
+        </article>
+
+        <!-- 8. Minimum pour jouer -->
+        <article class="jt-item jt-card p-4" data-open="false">
+          <button type="button" class="jt-toggle w-full flex items-center gap-3" aria-expanded="false">
+            <span class="jt-icon">💠</span>
+            <span class="flex-1 text-[#1f2937] font-medium">C'est quoi le minimum pour jouer ?</span>
+            <span class="jt-arrow">▾</span>
+          </button>
+          <div class="jt-panel mt-3 p-4 text-[#374151]">
+            <p class="mb-3">🔔 <strong>Commence avec seulement 20€ !</strong></p>
+            <ul class="space-y-1">
+              <li>&gt; 🎯 Parfait pour <strong>tester</strong></li>
+              <li>&gt; 🎁 <strong>Bonus doublé automatiquement</strong></li>
+              <li>&gt; ⭐ Accès à <strong>tous les jeux</strong></li>
+            </ul>
+            <p class="mt-3">✨ Pas besoin de mettre plus pour ta première fois !</p>
+          </div>
+        </article>
+
+        <!-- 9. Bouton pour jouer -->
+        <article class="jt-item jt-card p-4" data-open="false">
+          <button type="button" class="jt-toggle w-full flex items-center gap-3" aria-expanded="false">
+            <span class="jt-icon">🕒</span>
+            <span class="flex-1 text-[#1f2937] font-medium">Je trouve pas le bouton pour jouer, il est où ?</span>
+            <span class="jt-arrow">▾</span>
+          </button>
+          <div class="jt-panel mt-3 p-4 text-[#374151]">
+            <p class="mb-3">🎮 <strong>Super simple à trouver :</strong></p>
+            <ul class="space-y-1">
+              <li>&gt; 📜 Fais défiler jusqu’en <strong>bas de page</strong></li>
+              <li>&gt; 🎯 Clique sur le bouton <strong>“Commencer à jouer”</strong></li>
+              <li>&gt; ⚡ Le mini-jeu se lance <strong>instantanément</strong></li>
+            </ul>
+            <p class="mt-3">✨ Et c’est parti pour jouer ! 🐭</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+    <!-- ===== /FAQ ===== -->
+
+    <!-- Bouton vers votre site web -->
+    <div class="px-4 py-6">
+        <a href="https://taap.it/Jeu_tiktok" target="_blank" 
+           class="btn-secondary block w-full text-gray-800 text-center py-4 px-6 rounded-xl font-semibold text-lg shadow-lg">
+            COMMENCER A JOUER 🎮
+        </a>
+    </div>
+
+    <script>
+        // Minuteur quotidien
+        function updateTimer() {
+            const now = new Date();
+            const tomorrow = new Date(now);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            tomorrow.setHours(0, 0, 0, 0);
+            const timeLeft = tomorrow - now;
+            const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        updateTimer(); setInterval(updateTimer, 1000);
+
+        // Animation au scroll pour le carrousel
+        const carousel = document.querySelector('.carousel-container');
+        let isScrolling = false;
+        if (carousel) {
+          carousel.addEventListener('scroll', () => {
+              if (!isScrolling) {
+                  isScrolling = true;
+                  setTimeout(() => { isScrolling = false; }, 100);
+              }
+          });
+        }
+
+        // Accordéon FAQ isolé
+        (function(){
+          const items = document.querySelectorAll('#faq .jt-item');
+          items.forEach(it=>{
+            it.querySelector('.jt-toggle').addEventListener('click', ()=>{
+              const isOpen = it.getAttribute('data-open') === 'true';
+              items.forEach(x=>{
+                x.setAttribute('data-open','false');
+                x.querySelector('.jt-toggle').setAttribute('aria-expanded','false');
+              });
+              if(!isOpen){
+                it.setAttribute('data-open','true');
+                it.querySelector('.jt-toggle').setAttribute('aria-expanded','true');
+              }
+            });
+          });
+        })();
+    </script>
+</body>
+</html>
