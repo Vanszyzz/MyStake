@@ -1,267 +1,307 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>@bingbong — Account 3</title>
-  <meta name="description" content="Fake wallet dashboard mock for educational content." />
-  <style>
-    :root{
-      --bg:#0e1116;
-      --card:#1a1f29;
-      --card2:#141923;
-      --muted:#8a94a6;
-      --text:#e9ecf1;
-      --good:#3bd17b;
-      --bad:#ff5b5b;
-      --accent:#a894ff;
-      --border:rgba(255,255,255,.08);
-      --shadow:0 12px 30px rgba(0,0,0,.35);
-      --radius:18px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font:16px system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
-      color:var(--text);
-      background:radial-gradient(1200px 800px at 20% 20%, #19202e 0%, #0e1116 55%) fixed;
-      background-color:var(--bg);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:960px;margin:22px auto;padding:16px}
-    .wallet{
-      background:linear-gradient(180deg,#251c21 0%,#141923 100%);
-      border:1px solid var(--border);
-      border-radius:24px;
-      box-shadow:var(--shadow);
-      padding:20px;
-    }
-    .row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-    .space{height:16px}
-    .header{
-      display:flex;align-items:center;justify-content:space-between;gap:10px
-    }
-    .id{
-      display:flex;align-items:center;gap:12px
-    }
-    .avatar{
-      width:36px;height:36px;border-radius:50%;
-      background:linear-gradient(135deg,#3a3f4b,#1c2330);
-      display:grid;place-items:center;font-weight:700;color:#cbd5e1;
-    }
-    .id .name{display:flex;flex-direction:column;line-height:1.1}
-    .muted{color:var(--muted)}
-    .icons{display:flex;gap:12px}
-    .icon-btn{
-      width:36px;height:36px;border-radius:10px;display:grid;place-items:center;
-      background:var(--card2);border:1px solid var(--border)
-    }
-    .balance{
-      margin:12px 0 6px;font-size:44px;font-weight:800;letter-spacing:1px
-    }
-    .sub{
-      display:flex;gap:10px;align-items:center
-    }
-    .pill{
-      padding:6px 10px;border-radius:999px;background:#1e232f;border:1px solid var(--border);font-weight:600
-    }
-    .pill.bad{color:#ff9090;background:rgba(255,91,91,.08);border-color:rgba(255,91,91,.25)}
-    .pill.neutral{color:#cbd5e1}
-    .actions{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:20px 0 8px}
-    .action{
-      background:var(--card2);border:1px solid var(--border);border-radius:16px;
-      padding:18px 10px;display:grid;place-items:center;gap:10px;font-weight:700
-    }
-    .action svg{width:22px;height:22px}
-    .list{display:grid;gap:12px;margin-top:16px}
-    .item{
-      display:flex;justify-content:space-between;align-items:center;gap:12px;
-      background:var(--card);border:1px solid var(--border);border-radius:18px;padding:16px 14px
-    }
-    .tok{display:flex;align-items:center;gap:12px}
-    .logo{
-      width:40px;height:40px;border-radius:50%;
-      display:grid;place-items:center;font-weight:800;
-      background:linear-gradient(135deg,#2f3750,#121826);
-      color:#9ad1ff;border:1px solid var(--border)
-    }
-    .tok .meta{display:flex;flex-direction:column}
-    .right{text-align:right}
-    .val{font-weight:800}
-    .delta-good{color:var(--good)}
-    .delta-bad{color:var(--bad)}
-    .section{
-      margin-top:22px;padding:18px;border:1px dashed var(--border);
-      border-radius:16px;background:rgba(20,25,35,.6)
-    }
-    .grid2{display:grid;grid-template-columns:1fr;gap:12px}
-    .sponsor{opacity:.9}
-    footer{opacity:.7;text-align:center;margin:24px 0}
-    @media(min-width:700px){
-      .balance{font-size:58px}
-      .grid2{grid-template-columns:1fr 1fr}
-    }
-    /* Small “ad” card */
-    .ad{
-      display:flex;justify-content:space-between;align-items:center;gap:12px;
-      padding:14px;border-radius:14px;background:#111723;border:1px solid var(--border)
-    }
-    .badge{padding:4px 8px;border-radius:999px;background:#0f1a2b;border:1px solid var(--border);color:#c9d4ff;font-weight:700}
-    .link{color:#a5b4fc;text-decoration:underline}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>@bingbong — Account 3</title>
+<meta name="description" content="Educational wallet-style mock UI (not real funds).">
+<style>
+  :root{
+    /* Palette + métriques proches du site */
+    --bg:#0d1117;
+    --bg-glow-1:#0b1626;
+    --bg-glow-2:#141b2a;
+    --card:#121825;
+    --card-top:#261b1f;
+    --card-top-2:#141a24;
+    --chip:#1a2131;
+    --muted:#96a1b4;
+    --text:#e7ebf2;
+    --soft:#cfd6e4;
+    --bad:#ff6d6d;
+    --bad-bg:rgba(255,109,109,.12);
+    --good:#39d98a;
+    --good-bg:rgba(57,217,138,.12);
+    --pill:#1e2534;
+    --pill-border:rgba(255,255,255,.12);
+    --stroke:rgba(255,255,255,.08);
+    --dash:rgba(255,255,255,.12);
+    --radius-xl:22px;
+    --radius-lg:18px;
+    --radius-md:14px;
+    --shadow:0 18px 40px rgba(0,0,0,.45);
+  }
+
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font:16px -apple-system,system-ui,Segoe UI,Roboto,Inter,Arial,sans-serif;
+    color:var(--text);
+    background:
+      radial-gradient(1200px 900px at 10% 10%, var(--bg-glow-1), transparent 60%),
+      radial-gradient(900px 700px at 90% 20%, var(--bg-glow-2), transparent 60%),
+      var(--bg);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+  }
+
+  .wrap{max-width:980px;margin:24px auto;padding:16px}
+
+  /* Carte principale */
+  .wallet{
+    border-radius:28px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    border:1px solid var(--stroke);
+    background:
+      linear-gradient(180deg, var(--card-top) 0%, var(--card-top-2) 34%, var(--card) 35%, var(--card) 100%);
+  }
+  .inner{padding:20px}
+
+  /* En-tête */
+  .header{display:flex;align-items:center;justify-content:space-between}
+  .id{display:flex;align-items:center;gap:12px}
+  .avatar{
+    width:40px;height:40px;border-radius:50%;
+    display:grid;place-items:center;font-weight:800;color:#cbd5e1;
+    background:linear-gradient(145deg,#2e3444,#181f2c);
+    border:1px solid var(--stroke);
+    box-shadow:inset 0 0 0 6px rgba(255,255,255,.02);
+  }
+  .id .name{line-height:1.1}
+  .id .sub{color:var(--muted);font-size:14px;margin-top:3px}
+
+  .head-icons{display:flex;gap:10px}
+  .sq{
+    width:38px;height:38px;border-radius:12px;display:grid;place-items:center;
+    background:#1a2131;border:1px solid var(--stroke);
+  }
+
+  /* Balance */
+  .balance{font-size:56px;font-weight:900;letter-spacing:.3px;margin:16px 0 8px}
+  .pills{display:flex;gap:10px}
+  .pill{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:8px 12px;border-radius:999px;font-weight:700;
+    background:var(--pill);border:1px solid var(--pill-border);color:#cfe0ff;
+  }
+  .pill.bad{background:var(--bad-bg);border-color:rgba(255,109,109,.28);color:#ffc6c6}
+  .pill.gray{color:#cbd5e1}
+
+  /* Actions */
+  .actions{
+    margin:18px 0 6px;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+  }
+  .action{
+    background:#0f1522;border:1px solid var(--stroke);border-radius:20px;
+    height:84px;padding:10px 6px;text-align:center;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+    font-weight:700;color:#dfe6f3;
+  }
+  .action .ico{
+    width:24px;height:24px;display:inline-grid;place-items:center;
+    border-radius:9px;background:#0a1220;border:1px solid var(--stroke);
+    box-shadow:inset 0 -1px 0 rgba(255,255,255,.04);
+  }
+
+  /* Liste tokens */
+  .list{display:grid;gap:12px;margin-top:14px}
+  .item{
+    border:1px solid var(--stroke);border-radius:20px;background:#161d2b;
+    padding:16px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  }
+  .left{display:flex;align-items:center;gap:12px}
+  .logo{
+    width:44px;height:44px;border-radius:50%;
+    display:grid;place-items:center;font-weight:800;
+    background:radial-gradient(circle at 35% 30%, #2d3953 0%, #20283b 60%, #151b29 100%);
+    color:#b8c6ff;border:1px solid var(--stroke);
+    box-shadow:inset 0 0 0 8px rgba(255,255,255,.02);
+  }
+  .meta{line-height:1.05}
+  .meta small{color:var(--muted);display:block;margin-top:6px}
+  .right{text-align:right}
+  .val{font-weight:900}
+  .delta{margin-top:6px;font-weight:700}
+  .red{color:var(--bad)} .green{color:var(--good)}
+
+  /* Section “settings + ads” avec contours pointillés */
+  .section{
+    margin:22px 14px 18px;border:1px dashed var(--dash);
+    border-radius:20px;padding:16px;background:rgba(13,18,30,.45);
+  }
+  .grid2{display:grid;grid-template-columns:1fr;gap:14px}
+  .card-soft{
+    border:1px solid var(--stroke);border-radius:18px;padding:14px 16px;background:#0f1625;
+  }
+  .h3{font-weight:800;margin:0 0 10px}
+  .ad{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:12px 14px;border-radius:14px;background:#0c1422;border:1px solid var(--stroke)
+  }
+  .badge{padding:6px 10px;border-radius:999px;border:1px solid var(--stroke);background:#0b1220;font-weight:800}
+  .link{color:#a9b7ff;text-decoration:underline}
+
+  footer{opacity:.85;text-align:center;margin:18px 0 10px}
+  .domain{display:block;margin-top:10px;color:#9db1d6;opacity:.9}
+
+  @media (min-width:720px){
+    .balance{font-size:64px}
+    .grid2{grid-template-columns:1fr 1fr}
+  }
+</style>
 </head>
 <body>
   <div class="wrap">
+
     <div class="wallet">
-      <!-- Header -->
-      <div class="header">
-        <div class="id">
-          <div class="avatar">B</div>
-          <div class="name">
-            <div>@bingbong</div>
-            <div class="muted">Account 3</div>
-          </div>
-        </div>
-        <div class="icons">
-          <div class="icon-btn" title="Search">🔍</div>
-          <div class="icon-btn" title="Grid">▦</div>
-        </div>
-      </div>
-
-      <!-- Balance -->
-      <div class="balance">$6,028,117.11</div>
-      <div class="sub">
-        <span class="pill bad">-$14,507.95</span>
-        <span class="pill neutral">-0.24%</span>
-      </div>
-
-      <!-- Actions -->
-      <div class="actions">
-        <div class="action" role="button" tabindex="0">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          Receive
-        </div>
-        <div class="action" role="button" tabindex="0">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M7 7h10M7 12h7M7 17h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          Send
-        </div>
-        <div class="action" role="button" tabindex="0">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h9l-2-2m2 12H6l2 2M20 12a8 8 0 11-16 0 8 8 0 0116 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Swap
-        </div>
-        <div class="action" role="button" tabindex="0">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M12 8v8M8 12h8M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          Buy
-        </div>
-      </div>
-
-      <!-- Tokens list -->
-      <div class="list">
-        <div class="item">
-          <div class="tok">
-            <div class="logo">S</div>
-            <div class="meta">
-              <strong>Solana</strong>
-              <span class="muted">23,037.37 Solana</span>
+      <div class="inner">
+        <!-- Header -->
+        <div class="header">
+          <div class="id">
+            <div class="avatar">B</div>
+            <div class="name">
+              <div style="font-weight:800">@bingbong</div>
+              <div class="sub">Account 3</div>
             </div>
           </div>
-          <div class="right">
-            <div class="val">$5,926,593.81</div>
-            <div class="delta-bad">-$7,371.96</div>
+          <div class="head-icons">
+            <div class="sq" aria-label="Search">🔎</div>
+            <div class="sq" aria-label="Grid">▦</div>
           </div>
         </div>
 
-        <div class="item">
-          <div class="tok">
-            <div class="logo">🐶</div>
-            <div class="meta">
-              <strong>dogwifhat</strong>
-              <span class="muted">10,136.45 dogwifhat</span>
-            </div>
-          </div>
-          <div class="right">
-            <div class="val">$32,538</div>
-            <div class="delta-good">+$204.76</div>
-          </div>
+        <!-- Balance -->
+        <div class="balance" id="balance">$6,028,117.11</div>
+        <div class="pills">
+          <span class="pill bad" id="pnl">-$14,507.95</span>
+          <span class="pill gray">-0.24%</span>
         </div>
 
-        <div class="item">
-          <div class="tok">
-            <div class="logo">R</div>
-            <div class="meta">
-              <strong>RETARDIO</strong>
-              <span class="muted">71,210.83 RETARDIO</span>
-            </div>
-          </div>
-          <div class="right">
-            <div class="val">$8,545.30</div>
-            <div class="delta-bad">-$1,089.53</div>
-          </div>
+        <!-- Actions -->
+        <div class="actions" role="group" aria-label="Actions">
+          <div class="action"><span class="ico">＋</span>Receive</div>
+          <div class="action"><span class="ico">≡</span>Send</div>
+          <div class="action"><span class="ico">⟲</span>Swap</div>
+          <div class="action"><span class="ico">＋</span>Buy</div>
         </div>
 
-        <div class="item">
-          <div class="tok">
-            <div class="logo">F</div>
-            <div class="meta">
-              <strong>Fartcoin</strong>
-              <span class="muted">172,685.71 Fartcoin</span>
+        <!-- Tokens -->
+        <div class="list">
+          <div class="item">
+            <div class="left">
+              <div class="logo">S</div>
+              <div class="meta">
+                <div style="font-weight:800">Solana</div>
+                <small><span id="sol-hold">23,037.37</span> <span style="opacity:.9">Solana</span></small>
+              </div>
+            </div>
+            <div class="right">
+              <div class="val" id="sol-val">$5,926,593.81</div>
+              <div class="delta red" id="sol-delta">-$7,371.96</div>
             </div>
           </div>
-          <div class="right">
-            <div class="val">$60,440</div>
-            <div class="delta-bad">-$6,251.22</div>
+
+          <div class="item">
+            <div class="left">
+              <div class="logo">🐶</div>
+              <div class="meta">
+                <div style="font-weight:800">dogwifhat</div>
+                <small>10,136.45 dogwifhat</small>
+              </div>
+            </div>
+            <div class="right">
+              <div class="val">$32,538</div>
+              <div class="delta green">+ $204.76</div>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="left">
+              <div class="logo">R</div>
+              <div class="meta">
+                <div style="font-weight:800">RETARDIO</div>
+                <small>71,210.83 RETARDIO</small>
+              </div>
+            </div>
+            <div class="right">
+              <div class="val">$8,545.30</div>
+              <div class="delta red">-$1,089.53</div>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="left">
+              <div class="logo">F</div>
+              <div class="meta">
+                <div style="font-weight:800">Fartcoin</div>
+                <small>172,685.71 Fartcoin</small>
+              </div>
+            </div>
+            <div class="right">
+              <div class="val">$60,440</div>
+              <div class="delta red">-$6,251.22</div>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Settings / Ads -->
+      <!-- Dashed section -->
       <div class="section">
         <div class="grid2">
-          <div>
-            <h3 style="margin:.2rem 0 10px">Wallet Settings</h3>
+          <div class="card-soft">
+            <div class="h3">Wallet Settings</div>
             <div class="ad">
-              <div><strong>click to change emoji</strong><br><span class="muted">Pick any avatar you like.</span></div>
-              <span class="badge">⚙️ Settings</span>
+              <div><strong>click to change emoji</strong><br><span style="color:var(--muted)">Pick any avatar you like.</span></div>
+              <span class="badge">Settings</span>
             </div>
           </div>
-          <div>
-            <h3 style="margin:.2rem 0 10px">Existing Assets</h3>
+          <div class="card-soft">
+            <div class="h3">Existing Assets</div>
             <div class="ad">
-              <div><strong>Your coin here?</strong><br><span class="muted">0.25 SOL / week</span></div>
+              <div><strong>Your coin here?</strong><br><span style="color:var(--muted)">0.25 SOL / week</span></div>
               <a class="badge link" href="https://t.me/bullposting" target="_blank" rel="noopener">@bullposting</a>
             </div>
           </div>
         </div>
 
-        <div class="sponsor" style="margin-top:14px">
-          <div class="muted" style="margin-bottom:8px">Sponsor</div>
+        <div style="margin-top:14px">
+          <div class="h3" style="color:var(--muted);font-weight:800;margin-bottom:10px">Sponsor</div>
           <div class="list">
             <div class="item">
-              <div class="tok"><div class="logo">S</div><div class="meta"><strong>Solana</strong><span class="muted">23,037.37</span></div></div>
-              <div class="right"><div class="val">$5,926,593.81</div><div class="delta-bad">-$7,371.96</div></div>
+              <div class="left"><div class="logo">S</div><div class="meta"><div style="font-weight:800">Solana</div><small>23,037.37</small></div></div>
+              <div class="right"><div class="val">$5,926,593.81</div><div class="delta red">-$7,371.96</div></div>
             </div>
             <div class="item">
-              <div class="tok"><div class="logo">🐶</div><div class="meta"><strong>dogwifhat</strong><span class="muted">10,136.45</span></div></div>
-              <div class="right"><div class="val">$32,538</div><div class="delta-good">+$204.76</div></div>
+              <div class="left"><div class="logo">🐶</div><div class="meta"><div style="font-weight:800">dogwifhat</div><small>10,136.45</small></div></div>
+              <div class="right"><div class="val">$32,538</div><div class="delta green">+ $204.76</div></div>
             </div>
             <div class="item">
-              <div class="tok"><div class="logo">R</div><div class="meta"><strong>RETARDIO</strong><span class="muted">71,210.83</span></div></div>
-              <div class="right"><div class="val">$8,545.30</div><div class="delta-bad">-$1,089.53</div></div>
+              <div class="left"><div class="logo">R</div><div class="meta"><div style="font-weight:800">RETARDIO</div><small>71,210.83</small></div></div>
+              <div class="right"><div class="val">$8,545.30</div><div class="delta red">-$1,089.53</div></div>
             </div>
             <div class="item">
-              <div class="tok"><div class="logo">F</div><div class="meta"><strong>Fartcoin</strong><span class="muted">172,685.71</span></div></div>
-              <div class="right"><div class="val">$60,440</div><div class="delta-bad">-$6,251.22</div></div>
+              <div class="left"><div class="logo">F</div><div class="meta"><div style="font-weight:800">Fartcoin</div><small>172,685.71</small></div></div>
+              <div class="right"><div class="val">$60,440</div><div class="delta red">-$6,251.22</div></div>
             </div>
           </div>
         </div>
       </div>
-
     </div>
 
-    <footer>Fait par <a class="link" href="https://t.me/bullposting" target="_blank" rel="noopener">@bullposting</a></footer>
+    <footer>
+      Fait par <a class="link" href="https://t.me/bullposting" target="_blank" rel="noopener">@bullposting</a>
+      <span class="domain">vanszyzz.github.io</span>
+    </footer>
   </div>
+
+  <!-- Petit JS seulement pour un formatage propre si tu veux changer les montants dynamiquement -->
+  <script>
+    // Exemple : met à jour proprement les nombres avec des virgules US
+    const fmt = new Intl.NumberFormat('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
+    // Si tu veux piloter les chiffres, fais: document.getElementById('balance').textContent = '$' + fmt.format(6028117.11);
+  </script>
 </body>
 </html>
