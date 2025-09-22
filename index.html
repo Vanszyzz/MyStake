@@ -1,336 +1,267 @@
-<!DOCTYPE html>
-<html lang="fr">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Offre Limitée - Ne Manquez Pas Cette Opportunité</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
-        body { font-family: 'Inter', sans-serif; }
-        
-        .timer-digit {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.05)} }
-        
-        .carousel-container { scroll-snap-type:x mandatory; scrollbar-width:none; -ms-overflow-style:none; }
-        .carousel-container::-webkit-scrollbar { display:none; }
-        .carousel-item { scroll-snap-align:center; flex-shrink:0; }
-        .gradient-bg { background: linear-gradient(135deg, #fce7f3 0%, #f9a8d4 100%); }
-        
-        .btn-primary { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); transition: all .3s ease; }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(102,126,234,.3); }
-        .btn-secondary { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); transition: all .3s ease; }
-        .btn-secondary:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(252,182,159,.3); }
-
-        /* ===== Styles FAQ "jeuxtiktok"-like ===== */
-        .jt-card{background:rgba(250,229,255,.55);border-radius:18px;box-shadow:0 10px 24px rgba(118,75,162,.12)}
-        .jt-panel{background:rgba(255,241,255,.9);border-radius:16px;max-height:0;overflow:hidden;transition:max-height .3s ease}
-        .jt-icon{width:38px;height:38px;border-radius:9999px;display:grid;place-items:center;
-                 background:linear-gradient(135deg,#a78bfa 0%,#ec4899 100%);color:#fff;font-size:18px;flex:none}
-        .jt-arrow{transition:transform .25s ease}
-        .jt-item[data-open="true"] .jt-arrow{transform:rotate(180deg)}
-        .jt-item[data-open="true"] .jt-panel{max-height:700px}
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>@bingbong — Account 3</title>
+  <meta name="description" content="Fake wallet dashboard mock for educational content." />
+  <style>
+    :root{
+      --bg:#0e1116;
+      --card:#1a1f29;
+      --card2:#141923;
+      --muted:#8a94a6;
+      --text:#e9ecf1;
+      --good:#3bd17b;
+      --bad:#ff5b5b;
+      --accent:#a894ff;
+      --border:rgba(255,255,255,.08);
+      --shadow:0 12px 30px rgba(0,0,0,.35);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font:16px system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+      color:var(--text);
+      background:radial-gradient(1200px 800px at 20% 20%, #19202e 0%, #0e1116 55%) fixed;
+      background-color:var(--bg);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:960px;margin:22px auto;padding:16px}
+    .wallet{
+      background:linear-gradient(180deg,#251c21 0%,#141923 100%);
+      border:1px solid var(--border);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      padding:20px;
+    }
+    .row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .space{height:16px}
+    .header{
+      display:flex;align-items:center;justify-content:space-between;gap:10px
+    }
+    .id{
+      display:flex;align-items:center;gap:12px
+    }
+    .avatar{
+      width:36px;height:36px;border-radius:50%;
+      background:linear-gradient(135deg,#3a3f4b,#1c2330);
+      display:grid;place-items:center;font-weight:700;color:#cbd5e1;
+    }
+    .id .name{display:flex;flex-direction:column;line-height:1.1}
+    .muted{color:var(--muted)}
+    .icons{display:flex;gap:12px}
+    .icon-btn{
+      width:36px;height:36px;border-radius:10px;display:grid;place-items:center;
+      background:var(--card2);border:1px solid var(--border)
+    }
+    .balance{
+      margin:12px 0 6px;font-size:44px;font-weight:800;letter-spacing:1px
+    }
+    .sub{
+      display:flex;gap:10px;align-items:center
+    }
+    .pill{
+      padding:6px 10px;border-radius:999px;background:#1e232f;border:1px solid var(--border);font-weight:600
+    }
+    .pill.bad{color:#ff9090;background:rgba(255,91,91,.08);border-color:rgba(255,91,91,.25)}
+    .pill.neutral{color:#cbd5e1}
+    .actions{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:20px 0 8px}
+    .action{
+      background:var(--card2);border:1px solid var(--border);border-radius:16px;
+      padding:18px 10px;display:grid;place-items:center;gap:10px;font-weight:700
+    }
+    .action svg{width:22px;height:22px}
+    .list{display:grid;gap:12px;margin-top:16px}
+    .item{
+      display:flex;justify-content:space-between;align-items:center;gap:12px;
+      background:var(--card);border:1px solid var(--border);border-radius:18px;padding:16px 14px
+    }
+    .tok{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:40px;height:40px;border-radius:50%;
+      display:grid;place-items:center;font-weight:800;
+      background:linear-gradient(135deg,#2f3750,#121826);
+      color:#9ad1ff;border:1px solid var(--border)
+    }
+    .tok .meta{display:flex;flex-direction:column}
+    .right{text-align:right}
+    .val{font-weight:800}
+    .delta-good{color:var(--good)}
+    .delta-bad{color:var(--bad)}
+    .section{
+      margin-top:22px;padding:18px;border:1px dashed var(--border);
+      border-radius:16px;background:rgba(20,25,35,.6)
+    }
+    .grid2{display:grid;grid-template-columns:1fr;gap:12px}
+    .sponsor{opacity:.9}
+    footer{opacity:.7;text-align:center;margin:24px 0}
+    @media(min-width:700px){
+      .balance{font-size:58px}
+      .grid2{grid-template-columns:1fr 1fr}
+    }
+    /* Small “ad” card */
+    .ad{
+      display:flex;justify-content:space-between;align-items:center;gap:12px;
+      padding:14px;border-radius:14px;background:#111723;border:1px solid var(--border)
+    }
+    .badge{padding:4px 8px;border-radius:999px;background:#0f1a2b;border:1px solid var(--border);color:#c9d4ff;font-weight:700}
+    .link{color:#a5b4fc;text-decoration:underline}
+  </style>
 </head>
-<body class="min-h-screen" style="background: linear-gradient(135deg, #fce7f3 0%, #f9a8d4 100%);">
-    <!-- Header avec minuteur -->
-    <div class="gradient-bg py-8 px-4 text-center">
-        <h1 class="text-3xl font-bold mb-2" style="color: #6366f1;">BONUS DE 150%</h1>
-        <p class="text-xl mb-4" style="color: #6366f1;">Cette opportunité se termine dans :</p>
-        
-        <!-- Minuteur -->
-        <div class="flex justify-center space-x-2 mb-4">
-            <div class="timer-digit text-white rounded-lg p-3 text-center min-w-[60px]">
-                <div class="text-2xl font-bold" id="hours">00</div>
-                <div class="text-xs">HEURES</div>
-            </div>
-            <div class="timer-digit text-white rounded-lg p-3 text-center min-w-[60px]">
-                <div class="text-2xl font-bold" id="minutes">00</div>
-                <div class="text-xs">MINUTES</div>
-            </div>
-            <div class="timer-digit text-white rounded-lg p-3 text-center min-w-[60px]">
-                <div class="text-2xl font-bold" id="seconds">00</div>
-                <div class="text-xs">SECONDES</div>
-            </div>
+<body>
+  <div class="wrap">
+    <div class="wallet">
+      <!-- Header -->
+      <div class="header">
+        <div class="id">
+          <div class="avatar">B</div>
+          <div class="name">
+            <div>@bingbong</div>
+            <div class="muted">Account 3</div>
+          </div>
         </div>
-        
-        <p class="text-base" style="color: #6366f1;">Dépose 30€ et obtiens 45€ en bonus ! Donc tu joues avec 75€. (PS: tu obtiens 250€ gratuitement si tu déposes 200€)</p>
-    </div>
-
-    <!-- Bouton d'affiliation principal -->
-    <div class="px-4 py-6">
-        <a href="https://taap.it/Jeu_tiktok" target="_blank" 
-           class="btn-primary block w-full text-white rounded-xl font-semibold text-lg shadow-lg flex items-end justify-start p-6 relative overflow-hidden" 
-           style="aspect-ratio: 1200/400; background-image: url('https://images.ctfassets.net/396hpkwz9eqc/188mubcSy8XI8pmzdtZtz4/db77553115ad71cadb5d60a93a1dc0fe/mystake-casino-banner.webp'); background-size: cover; background-position: center;">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-            <span class="relative z-10">🚀 INSCRIPTION EN 30 SECONDES</span>
-        </a>
-        <p class="text-center text-gray-600 text-sm mt-2">✅ Accès immédiat • 💯 Garantie satisfait</p>
-    </div>
-
-    <!-- Carrousel -->
-    <div class="px-4 py-6">
-        <h2 class="text-xl font-semibold text-gray-800 mb-4 text-center">Gains Récents 💸</h2>
-        <div class="carousel-container flex overflow-x-auto space-x-4 pb-4">
-            <div class="carousel-item bg-gradient-to-br from-pink-400 to-purple-500 rounded-2xl p-6 text-white text-center min-w-[200px] h-[300px] flex flex-col justify-center">
-                <div class="text-4xl mb-4">📈</div>
-                <h3 class="font-semibold mb-2">Résultat #1</h3>
-                <p class="text-sm opacity-90">+150% de revenus en 30 jours</p>
-            </div>
-            <div class="carousel-item bg-gradient-to-br from-blue-400 to-cyan-500 rounded-2xl p-6 text-white text-center min-w-[200px] h-[300px] flex flex-col justify-center">
-                <div class="text-4xl mb-4">💰</div>
-                <h3 class="font-semibold mb-2">Résultat #2</h3>
-                <p class="text-sm opacity-90">Premier gain dès la première semaine</p>
-            </div>
-            <div class="carousel-item bg-gradient-to-br from-green-400 to-emerald-500 rounded-2xl p-6 text-white text-center min-w-[200px] h-[300px] flex flex-col justify-center">
-                <div class="text-4xl mb-4">🎯</div>
-                <h3 class="font-semibold mb-2">Résultat #3</h3>
-                <p class="text-sm opacity-90">Objectifs atteints en 2 mois</p>
-            </div>
-            <div class="carousel-item bg-gradient-to-br from-orange-400 to-red-500 rounded-2xl p-6 text-white text-center min-w-[200px] h-[300px] flex flex-col justify-center">
-                <div class="text-4xl mb-4">⭐</div>
-                <h3 class="font-semibold mb-2">Résultat #4</h3>
-                <p class="text-sm opacity-90">5 étoiles de satisfaction</p>
-            </div>
+        <div class="icons">
+          <div class="icon-btn" title="Search">🔍</div>
+          <div class="icon-btn" title="Grid">▦</div>
         </div>
-        <p class="text-center text-gray-500 text-sm mt-2">👈 Faites défiler pour voir plus</p>
-    </div>
-
-    <!-- ===== FAQ (style jeuxtiktok) ===== -->
-    <section id="faq" class="mx-4 my-8">
-      <h2 class="text-2xl font-semibold text-center text-[#1f2937] mb-4">Questions fréquentes</h2>
-      <div class="space-y-4">
-
-        <!-- 1. Bonus -->
-        <article class="jt-item jt-card p-4" data-open="false">
-          <button type="button" class="jt-toggle w-full flex items-center gap-3" aria-expanded="false">
-            <span class="jt-icon">➕</span>
-            <span class="flex-1 text-[#1f2937] font-medium">Y'a un bonus si je dépose ?</span>
-            <span class="jt-arrow">▾</span>
-          </button>
-          <div class="jt-panel mt-3 p-4 text-[#374151]">
-            <p class="mb-3">💬 <strong>Oui, et c'est automatique.</strong></p>
-            <ul class="space-y-1">
-              <li>&gt; Dès que tu déposes <strong>au moins 10€</strong>, ton dépôt est <strong>doublé instantanément</strong> — pas besoin de code promo.</li>
-              <li>&gt; 🔥 Tu déposes <strong>20€</strong> → tu joues avec <strong>40€</strong></li>
-              <li>&gt; 💸 Tu déposes <strong>100€</strong> → tu joues direct avec <strong>200€</strong></li>
-            </ul>
-            <p class="mt-3">✅ Le <strong>bonus x2</strong> est garanti à chaque dépôt, peu importe le montant. Et parfois, un petit bonus surprise 🎉</p>
-          </div>
-        </article>
-
-        <!-- 2. Retraits -->
-        <article class="jt-item jt-card p-4" data-open="false">
-          <button type="button" class="jt-toggle w-full flex items-center gap-3" aria-expanded="false">
-            <span class="jt-icon">💳</span>
-            <span class="flex-1 text-[#1f2937] font-medium">Est-ce qu'on peut retirer l'argent ?</span>
-            <span class="jt-arrow">▾</span>
-          </button>
-          <div class="jt-panel mt-3 p-4 text-[#374151]">
-            <p class="mb-3">💬 <strong>Bien sûr !</strong></p>
-            <p>Dès que t’as gagné, tu peux retirer sur ton compte bancaire et tu recevras en <strong>2 jours</strong> comme un virement classique. 🧾</p>
-            <ul class="space-y-1 mt-3">
-              <li>&gt; ✨ <strong>Simple & rapide</strong> :</li>
-              <li>&gt; 🏦 Demande de retrait</li>
-              <li>&gt; ⏱️ <strong>Traitement sous 2h</strong></li>
-              <li>&gt; 💶 Virement sur ton compte</li>
-            </ul>
-          </div>
-        </article>
-
-        <!-- 3. Où sont les jeux ? -->
-        <article class="jt-item jt-card p-4" data-open="false">
-          <button type="button" class="jt-toggle w-full flex items-center gap-3" aria-expanded="false">
-            <span class="jt-icon">🎮</span>
-            <span class="flex-1 text-[#1f2937] font-medium">Où sont les jeux ?</span>
-            <span class="jt-arrow">▾</span>
-          </button>
-          <div class="jt-panel mt-3 p-4 text-[#374151]">
-            <p class="mb-3">🎮 Une fois <strong>inscrit et connecté</strong>, et que ton <strong>premier dépôt</strong> sera fait :</p>
-            <ul class="space-y-1">
-              <li>&gt; 🧊 Accès aux <strong>mini-jeux exclusifs</strong></li>
-              <li>&gt; 🎯 <strong>Interface intuitive</strong></li>
-              <li>&gt; ✨ <strong>Bonus spéciaux</strong> débloqués</li>
-            </ul>
-            <p class="mt-3">⚡ Tout est <strong>instantané</strong> après ton dépôt !</p>
-          </div>
-        </article>
-
-        <!-- 4. Fiabilité -->
-        <article class="jt-item jt-card p-4" data-open="false">
-          <button type="button" class="jt-toggle w-full flex items-center gap-3" aria-expanded="false">
-            <span class="jt-icon">🔒</span>
-            <span class="flex-1 text-[#1f2937] font-medium">C'est fiable ?</span>
-            <span class="jt-arrow">▾</span>
-          </button>
-          <div class="jt-panel mt-3 p-4 text-[#374151]">
-            <p class="mb-3">🔐 <strong>Absolument sûr et certifié !</strong></p>
-            <ul class="space-y-1">
-              <li>&gt; ✅ Site de jeu <strong>officiellement certifié</strong></li>
-              <li>&gt; 🌍 Actif <strong>dans plusieurs pays</strong></li>
-              <li>&gt; 💳 <strong>Paiements sécurisés</strong></li>
-            </ul>
-            <p class="mt-3">🎯 Notre philosophie :</p>
-            <ul class="space-y-1">
-              <li>&gt; 💸 Tu <strong>déposes</strong></li>
-              <li>&gt; 🎮 Tu <strong>joues</strong></li>
-              <li>&gt; 🟢 Tu <strong>retires</strong></li>
-            </ul>
-            <p class="mt-3">Simple. Sans prise de tête. ✨</p>
-          </div>
-        </article>
-
-        <!-- 5. C'est quoi le jeu ? -->
-        <article class="jt-item jt-card p-4" data-open="false">
-          <button type="button" class="jt-toggle w-full flex items-center gap-3" aria-expanded="false">
-            <span class="jt-icon">❓</span>
-            <span class="flex-1 text-[#1f2937] font-medium">C'est quoi exactement le jeu ?</span>
-            <span class="jt-arrow">▾</span>
-          </button>
-          <div class="jt-panel mt-3 p-4 text-[#374151]">
-            <p class="mb-3">🎮 <strong>Mini-jeu ultra rapide et simple :</strong></p>
-            <ul class="space-y-1">
-              <li>&gt; ⚡ <strong>Quelques clics</strong> suffisent</li>
-              <li>&gt; 💫 Possibilité de <strong>doubler instantanément</strong></li>
-              <li>&gt; 🔥 Le même jeu que tu vois sur <strong>TikTok</strong> et <strong>Insta</strong> !</li>
-            </ul>
-          </div>
-        </article>
-
-        <!-- 6. Mobile -->
-        <article class="jt-item jt-card p-4" data-open="false">
-          <button type="button" class="jt-toggle w-full flex items-center gap-3" aria-expanded="false">
-            <span class="jt-icon">📱</span>
-            <span class="flex-1 text-[#1f2937] font-medium">Est-ce que ça marche sur téléphone ?</span>
-            <span class="jt-arrow">▾</span>
-          </button>
-          <div class="jt-panel mt-3 p-4 text-[#374151]">
-            <p class="mb-3">📲 <strong>100% compatible mobile !</strong></p>
-            <ul class="space-y-1">
-              <li>&gt; ✨ Optimisé pour ton téléphone</li>
-              <li>&gt; 🚀 <strong>Interface fluide</strong> et intuitive</li>
-              <li>&gt; 💡 <strong>Pas besoin d'ordinateur</strong></li>
-            </ul>
-            <p class="mt-3">Tout se fait depuis ton tel en <strong>quelques clics</strong> ! 🎯</p>
-          </div>
-        </article>
-
-        <!-- 7. Tester sans déposer -->
-        <article class="jt-item jt-card p-4" data-open="false">
-          <button type="button" class="jt-toggle w-full flex items-center gap-3" aria-expanded="false">
-            <span class="jt-icon">🧐</span>
-            <span class="flex-1 text-[#1f2937] font-medium">Est-ce que je peux tester sans déposer ?</span>
-            <span class="jt-arrow">▾</span>
-          </button>
-          <div class="jt-panel mt-3 p-4 text-[#374151]">
-            <p class="mb-3">🔎 <strong>Voici comment ça marche :</strong></p>
-            <ul class="space-y-1">
-              <li>&gt; ✅ <strong>Explorer le site</strong> : Gratuit</li>
-              <li>&gt; 🎮 <strong>Accès aux jeux</strong> : Après dépôt</li>
-              <li>&gt; 💎 <strong>Dépôt minimum</strong> : 20€</li>
-            </ul>
-            <p class="mt-3">⭐ <strong>Notre conseil</strong> : Commence avec le minimum pour tester !</p>
-          </div>
-        </article>
-
-        <!-- 8. Minimum pour jouer -->
-        <article class="jt-item jt-card p-4" data-open="false">
-          <button type="button" class="jt-toggle w-full flex items-center gap-3" aria-expanded="false">
-            <span class="jt-icon">💠</span>
-            <span class="flex-1 text-[#1f2937] font-medium">C'est quoi le minimum pour jouer ?</span>
-            <span class="jt-arrow">▾</span>
-          </button>
-          <div class="jt-panel mt-3 p-4 text-[#374151]">
-            <p class="mb-3">🔔 <strong>Commence avec seulement 20€ !</strong></p>
-            <ul class="space-y-1">
-              <li>&gt; 🎯 Parfait pour <strong>tester</strong></li>
-              <li>&gt; 🎁 <strong>Bonus doublé automatiquement</strong></li>
-              <li>&gt; ⭐ Accès à <strong>tous les jeux</strong></li>
-            </ul>
-            <p class="mt-3">✨ Pas besoin de mettre plus pour ta première fois !</p>
-          </div>
-        </article>
-
-        <!-- 9. Bouton pour jouer -->
-        <article class="jt-item jt-card p-4" data-open="false">
-          <button type="button" class="jt-toggle w-full flex items-center gap-3" aria-expanded="false">
-            <span class="jt-icon">🕒</span>
-            <span class="flex-1 text-[#1f2937] font-medium">Je trouve pas le bouton pour jouer, il est où ?</span>
-            <span class="jt-arrow">▾</span>
-          </button>
-          <div class="jt-panel mt-3 p-4 text-[#374151]">
-            <p class="mb-3">🎮 <strong>Super simple à trouver :</strong></p>
-            <ul class="space-y-1">
-              <li>&gt; 📜 Fais défiler jusqu’en <strong>bas de page</strong></li>
-              <li>&gt; 🎯 Clique sur le bouton <strong>“Commencer à jouer”</strong></li>
-              <li>&gt; ⚡ Le mini-jeu se lance <strong>instantanément</strong></li>
-            </ul>
-            <p class="mt-3">✨ Et c’est parti pour jouer ! 🐭</p>
-          </div>
-        </article>
-
       </div>
-    </section>
-    <!-- ===== /FAQ ===== -->
 
-    <!-- Bouton vers votre site web -->
-    <div class="px-4 py-6">
-        <a href="https://taap.it/Jeu_tiktok" target="_blank" 
-           class="btn-secondary block w-full text-gray-800 text-center py-4 px-6 rounded-xl font-semibold text-lg shadow-lg">
-            COMMENCER A JOUER 🎮
-        </a>
+      <!-- Balance -->
+      <div class="balance">$6,028,117.11</div>
+      <div class="sub">
+        <span class="pill bad">-$14,507.95</span>
+        <span class="pill neutral">-0.24%</span>
+      </div>
+
+      <!-- Actions -->
+      <div class="actions">
+        <div class="action" role="button" tabindex="0">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          Receive
+        </div>
+        <div class="action" role="button" tabindex="0">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M7 7h10M7 12h7M7 17h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          Send
+        </div>
+        <div class="action" role="button" tabindex="0">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h9l-2-2m2 12H6l2 2M20 12a8 8 0 11-16 0 8 8 0 0116 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Swap
+        </div>
+        <div class="action" role="button" tabindex="0">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 8v8M8 12h8M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          Buy
+        </div>
+      </div>
+
+      <!-- Tokens list -->
+      <div class="list">
+        <div class="item">
+          <div class="tok">
+            <div class="logo">S</div>
+            <div class="meta">
+              <strong>Solana</strong>
+              <span class="muted">23,037.37 Solana</span>
+            </div>
+          </div>
+          <div class="right">
+            <div class="val">$5,926,593.81</div>
+            <div class="delta-bad">-$7,371.96</div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="tok">
+            <div class="logo">🐶</div>
+            <div class="meta">
+              <strong>dogwifhat</strong>
+              <span class="muted">10,136.45 dogwifhat</span>
+            </div>
+          </div>
+          <div class="right">
+            <div class="val">$32,538</div>
+            <div class="delta-good">+$204.76</div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="tok">
+            <div class="logo">R</div>
+            <div class="meta">
+              <strong>RETARDIO</strong>
+              <span class="muted">71,210.83 RETARDIO</span>
+            </div>
+          </div>
+          <div class="right">
+            <div class="val">$8,545.30</div>
+            <div class="delta-bad">-$1,089.53</div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="tok">
+            <div class="logo">F</div>
+            <div class="meta">
+              <strong>Fartcoin</strong>
+              <span class="muted">172,685.71 Fartcoin</span>
+            </div>
+          </div>
+          <div class="right">
+            <div class="val">$60,440</div>
+            <div class="delta-bad">-$6,251.22</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Settings / Ads -->
+      <div class="section">
+        <div class="grid2">
+          <div>
+            <h3 style="margin:.2rem 0 10px">Wallet Settings</h3>
+            <div class="ad">
+              <div><strong>click to change emoji</strong><br><span class="muted">Pick any avatar you like.</span></div>
+              <span class="badge">⚙️ Settings</span>
+            </div>
+          </div>
+          <div>
+            <h3 style="margin:.2rem 0 10px">Existing Assets</h3>
+            <div class="ad">
+              <div><strong>Your coin here?</strong><br><span class="muted">0.25 SOL / week</span></div>
+              <a class="badge link" href="https://t.me/bullposting" target="_blank" rel="noopener">@bullposting</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="sponsor" style="margin-top:14px">
+          <div class="muted" style="margin-bottom:8px">Sponsor</div>
+          <div class="list">
+            <div class="item">
+              <div class="tok"><div class="logo">S</div><div class="meta"><strong>Solana</strong><span class="muted">23,037.37</span></div></div>
+              <div class="right"><div class="val">$5,926,593.81</div><div class="delta-bad">-$7,371.96</div></div>
+            </div>
+            <div class="item">
+              <div class="tok"><div class="logo">🐶</div><div class="meta"><strong>dogwifhat</strong><span class="muted">10,136.45</span></div></div>
+              <div class="right"><div class="val">$32,538</div><div class="delta-good">+$204.76</div></div>
+            </div>
+            <div class="item">
+              <div class="tok"><div class="logo">R</div><div class="meta"><strong>RETARDIO</strong><span class="muted">71,210.83</span></div></div>
+              <div class="right"><div class="val">$8,545.30</div><div class="delta-bad">-$1,089.53</div></div>
+            </div>
+            <div class="item">
+              <div class="tok"><div class="logo">F</div><div class="meta"><strong>Fartcoin</strong><span class="muted">172,685.71</span></div></div>
+              <div class="right"><div class="val">$60,440</div><div class="delta-bad">-$6,251.22</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
-    <script>
-        // Minuteur quotidien
-        function updateTimer() {
-            const now = new Date();
-            const tomorrow = new Date(now);
-            tomorrow.setDate(tomorrow.getDate() + 1);
-            tomorrow.setHours(0, 0, 0, 0);
-            const timeLeft = tomorrow - now;
-            const hours = Math.floor(timeLeft / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-        }
-        updateTimer(); setInterval(updateTimer, 1000);
-
-        // Animation au scroll pour le carrousel
-        const carousel = document.querySelector('.carousel-container');
-        let isScrolling = false;
-        if (carousel) {
-          carousel.addEventListener('scroll', () => {
-              if (!isScrolling) {
-                  isScrolling = true;
-                  setTimeout(() => { isScrolling = false; }, 100);
-              }
-          });
-        }
-
-        // Accordéon FAQ isolé
-        (function(){
-          const items = document.querySelectorAll('#faq .jt-item');
-          items.forEach(it=>{
-            it.querySelector('.jt-toggle').addEventListener('click', ()=>{
-              const isOpen = it.getAttribute('data-open') === 'true';
-              items.forEach(x=>{
-                x.setAttribute('data-open','false');
-                x.querySelector('.jt-toggle').setAttribute('aria-expanded','false');
-              });
-              if(!isOpen){
-                it.setAttribute('data-open','true');
-                it.querySelector('.jt-toggle').setAttribute('aria-expanded','true');
-              }
-            });
-          });
-        })();
-    </script>
+    <footer>Fait par <a class="link" href="https://t.me/bullposting" target="_blank" rel="noopener">@bullposting</a></footer>
+  </div>
 </body>
 </html>
